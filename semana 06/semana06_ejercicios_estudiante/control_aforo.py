@@ -1,7 +1,7 @@
 """Reto integrador: control de ingreso al Anfiteatro del CENAC.
 
-Nombre del estudiante: __________________________________________
-Fecha: ____________________
+Nombre del estudiante: _________________Mainor Andrey Pérez Hurtado_________________________
+Fecha: _______23/10/2026_____________
 
 Contexto:
 Se analizará el ingreso de grupos a un evento en el Anfiteatro del CENAC, Costa Rica.
@@ -103,3 +103,58 @@ Otros casos para probar:
 
 
 # Desarrolle su solución a partir de esta línea.
+
+grupos_aceptados = []
+grupos_rechazados = []
+capacidad_maxima = 0
+
+entrada = input("Favor ingrese el grupo (o fin para terminar): ").strip().lower()
+
+while entrada != "fin":
+    try:
+        grupo = int(entrada) 
+        capacidad_maxima += grupo 
+        if capacidad_maxima <= 700: 
+            grupos_aceptados.append(grupo)
+            print(f"Grupo aceptado: ingresan {grupo:.0f} personas.")
+        else:
+            grupos_rechazados.append(grupo)
+            capacidad_maxima = capacidad_maxima - grupo
+            print(f"Grupo rechazado: no hay espacio para {grupo:.0f} personas.")
+        print(f"Ocupación actual: {capacidad_maxima}")
+        print(f"Espacios disponibles: {700 - capacidad_maxima} \n")    
+    except ValueError:
+        grupo = -1
+    entrada = input("Favor ingrese el grupo (o fin para terminar): ").strip().lower()
+
+personas_admitidas = 0
+aceptado_pequeno = 700
+aceptado_grande = 0
+for grupos in grupos_aceptados:
+    personas_admitidas +=  grupos
+    if grupos < aceptado_pequeno :
+        aceptado_pequeno = grupos
+    if grupos > aceptado_grande:
+        aceptado_grande = grupos
+    
+cantidad_aceptados = len(grupos_aceptados)
+cantidad_rechazados = len(grupos_rechazados)
+espacios_disponibles = 700 - personas_admitidas
+porcentaje_ocupacion = personas_admitidas / 700 * 100
+if espacios_disponibles == 0:
+    capacidad = "capacidad completa"
+else:
+    capacidad = "capacidad incompleta"
+    
+
+print("REPORTE FINAL")
+print("-"*80,"\n")
+print(f"Grupos aceptados: {cantidad_aceptados}")
+print(f"Grupos rechazados: {cantidad_rechazados}")
+print(f"Personas admitidas: {personas_admitidas}")
+print("Capacidad maxima: 700")
+print(f"Espacios disponibles: {espacios_disponibles}")
+print(f"Porcentaje de ocupacion: {porcentaje_ocupacion:.2f}%")
+print(f"Grupo aceptado más pequeño: {aceptado_pequeno}")
+print(f"Grupo aceptado más grande: {aceptado_grande}")
+print(f"Estado final: {capacidad}")
