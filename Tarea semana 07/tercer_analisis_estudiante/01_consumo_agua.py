@@ -12,3 +12,4 @@ consumos_litros = [120, 115, 108, 102, 96]
 #          reducción alta.
 # Prueba: use temporalmente cinco consumos iguales. Debe indicar 0 % y
 # "Sin reducción". Restaure la lista antes de entregar.
+consumo_total = sum(consumo_litros)
