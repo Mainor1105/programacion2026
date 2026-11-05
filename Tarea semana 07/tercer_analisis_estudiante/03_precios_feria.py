@@ -12,3 +12,27 @@ precios = [900, 850, 1000, 950, 1200]
 # rango ₡350, 2 precios sobre el promedio, variación alta.
 # Prueba de código: use temporalmente cinco precios iguales y compruebe que
 # el rango sea cero y ninguno supere el promedio. Restaure la lista.
+
+promedio = sum(precios) / len(precios)
+minimo = min(precios)
+maximo = max(precios)
+rango = maximo - minimo
+
+
+contador = 0
+indice = 0
+
+while indice < len (precios):
+    if precios [indice] > promedio:
+        contador += 1
+
+if rango >= 300:
+    clasificacion = "variacion alta"
+elif rango >= 150:
+    clasificacion = "variacion moderada"
+else:
+    clasificacion = "variacion baja"
+
+print (f"Producto: {producto}")
+print (f"₡{promedio}")
+
