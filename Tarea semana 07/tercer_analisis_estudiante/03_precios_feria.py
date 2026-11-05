@@ -22,9 +22,10 @@ rango = maximo - minimo
 contador = 0
 indice = 0
 
-while indice < len (precios):
-    if precios [indice] > promedio:
+while indice < len(precios):
+    if precios[indice] > promedio:
         contador += 1
+    indice += 1 
 
 if rango >= 300:
     clasificacion = "variacion alta"
@@ -33,6 +34,11 @@ elif rango >= 150:
 else:
     clasificacion = "variacion baja"
 
-print (f"Producto: {producto}")
-print (f"₡{promedio}")
+print(f"Producto: {producto}") 
+print(f"Promedio: {promedio}") 
+print(f"Minimo: {minimo}") 
+print(f"Maximo: {maximo}") 
+print(f"Rango: {rango}") 
+print(f"Precios que superan el promedio: {contador}") 
+print(f"Clasificación del rango: {clasificacion}")
 
