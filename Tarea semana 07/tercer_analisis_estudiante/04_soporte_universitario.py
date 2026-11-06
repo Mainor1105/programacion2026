@@ -23,3 +23,48 @@ from incidencias import incidencias
 # Prueba: cambie temporalmente INC-07 a resuelto=True. Debe salir de la
 # lista de urgentes, del conteo de pendientes y del set de provincias
 # pendientes, pero seguir como caso más largo. Restaure incidencias.py.
+
+
+total_minutos = 0
+categorias = {"Acceso": 0, "Equipo": 0, "Red": 0}
+pendientes = 0
+provincias_pendientes = set()
+urgentes = []
+mas_largo_id = ""
+mas_largo_minutos = 0
+
+# 2. Revisamos cada incidencia una sola vez
+for x in incidencias:
+  # Sumamos minutos y contamos categorías
+  total_minutos += x["minutos_atencion"]
+  categorias[x["categoria"]] += 1
+
+  # Si NO está resuelto
+  if x["resuelto"] == False:
+    pendientes += 1
+    provincias_pendientes.add(x["provincia"])
+
+    # Si además tiene 60 minutos o más
+    if x["minutos_atencion"] >= 60:
+      urgentes.append((x["id"], x["minutos_atencion"]))
+
+  # Buscamos el caso con más minutos de todos
+  if x["minutos_atencion"] > mas_largo_minutos:
+    mas_largo_id = x["id"]
+    mas_largo_minutos = x["minutos_atencion"]
+
+# 3. Guardamos los resultados finales como pide el ejercicio
+caso_mas_largo = (mas_largo_id, mas_largo_minutos)
+lista_urgentes = tuple(urgentes)
+promedio = total_minutos / len(incidencias)
+existe_san_jose = "San Jose" in provincias_pendientes
+
+# 4. Mostramos todo en pantalla
+print("Total minutos:", total_minutos)
+print("Promedio minutos:", promedio)
+print("Por categoría:", categorias)
+print("Pendientes:", pendientes)
+print("Provincias con pendientes:", provincias_pendientes)
+print("Casos urgentes:", lista_urgentes)
+print("Caso más largo:", caso_mas_largo)
+print("¿San Jose tiene pendientes?:", existe_san_jose)
