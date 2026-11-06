@@ -35,10 +35,10 @@ else:
     clasificacion = "variacion baja"
 
 print(f"Producto: {producto}") 
-print(f"Promedio: {promedio}") 
-print(f"Minimo: {minimo}") 
-print(f"Maximo: {maximo}") 
-print(f"Rango: {rango}") 
+print(f"Promedio: ₡{promedio}") 
+print(f"Minimo: ₡{minimo}") 
+print(f"Maximo: ₡{maximo}") 
+print(f"Rango: ₡{rango}") 
 print(f"Precios que superan el promedio: {contador}") 
 print(f"Clasificación del rango: {clasificacion}")
 
