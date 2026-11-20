@@ -40,6 +40,8 @@ for minutos in ESPERAS:
 print("Total de minutos:", total_minutos)
 print("Promedio de minutos:", round(promedio, 2))
 print("Esperas mayores a 30 minutos:", esperas_largas)
+promedio = total_minutos / len(ESPERAS)
+print("Promedio de espera A:", round(promedio, 2))
 
 
 # PARTE B: registrar nuevos tiempos hasta que la persona escriba 0.
@@ -64,3 +66,8 @@ while respuesta != "0":
 
 print("Atenciones registradas:", cantidad)
 print("Total de minutos registrados:", total_registrado)
+if cantidad > 0:
+    promedio_registrado = total_registrado / cantidad
+    print("Promedio de espera:", round(promedio_registrado, 2))
+else:
+    print("Promedio de minutos: 0")
