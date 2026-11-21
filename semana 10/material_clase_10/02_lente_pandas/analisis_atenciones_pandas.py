@@ -6,19 +6,24 @@ ARCHIVO_CSV = Path(__file__).with_name("atenciones.csv")
 
 
 def explorar_atenciones(atenciones):
-    pass
+    print("atenciones: ", len(atenciones))
+    print("atenciones tipo: ", type(atenciones) )
+    print("campos: ", list(atenciones.columns))
 
 
 def contar_categorias(atenciones):
-    pass
-
+    print("Medicamentos", atenciones["medicamento"].value_counts().to_dict())
+    print("Hospitales: ", atenciones["hospital"].value_counts())
 
 def concluir(atenciones):
-    pass
-
+    print("pacientes: ", atenciones["cedula"].unique())
+    print("minutos de espera: ", atenciones["minutos_espera".sum()])
+    print("minutos de espera: ", atenciones["minutos_espera".mean()])
+    print("minutos de espera: ", atenciones["minutos_espera".mode()])
+    print("minutos de espera: ", atenciones["minutos_espera".median()])    
 
 try:
-    pass ##PANDAS.....
+    atenciones = pd.read_csv(ARCHIVO_CSV) ##PANDAS.....
 except FileNotFoundError:
     print(f"No encontramos el archivo: {ARCHIVO_CSV}")
     raise SystemExit(1)
