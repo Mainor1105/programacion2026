@@ -50,7 +50,7 @@ def concluir(atenciones):
 
     for atencion in atenciones:
         # Contamos la cédula y acumulamos los minutos de espera.
-        total_minutos += int(atencion["minutos"])
+        total_minutos += int(atencion["minutos_espera"])
         cedula = atencion ["cedula"]
         if cedula in visitas:
             visitas[cedula] += 1

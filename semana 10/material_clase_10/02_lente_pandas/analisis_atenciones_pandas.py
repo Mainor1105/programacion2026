@@ -1,6 +1,7 @@
 """El mismo expediente, con Pandas y las mismas tres funciones."""
 
 from pathlib import Path
+import pandas as pd
 
 ARCHIVO_CSV = Path(__file__).with_name("atenciones.csv")
 
