@@ -18,10 +18,10 @@ def contar_categorias(atenciones):
 
 def concluir(atenciones):
     print("pacientes: ", atenciones["cedula"].unique())
-    print("minutos de espera: ", atenciones["minutos_espera".sum()])
-    print("minutos de espera: ", atenciones["minutos_espera".mean()])
-    print("minutos de espera: ", atenciones["minutos_espera".mode()])
-    print("minutos de espera: ", atenciones["minutos_espera".median()])    
+    print("minutos de espera: ", atenciones["minutos_espera"].sum())
+    print("minutos de espera: ", atenciones["minutos_espera"].mean())
+    print("minutos de espera: ", atenciones["minutos_espera"].mode())
+    print("minutos de espera: ", atenciones["minutos_espera"].median())    
 
 try:
     atenciones = pd.read_csv(ARCHIVO_CSV) ##PANDAS.....
